@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Naive Bayes - Iris Prediction</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      /* Main Content */
+      .container {
+        padding: 40px;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        flex: 1;
+      }
+
+      .container p {
+        font-size: 18px;
+        color: #555;
+      }
+      h1,
+      h2 {
+        color: #333;
+      }
+
+      form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 500px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      input[type="submit"] {
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #218838;
+      }
+
+      .result {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Back Button */
+      .back-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #6c757d;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+      }
+
+      .back-button:hover {
+        background-color: #5a6268;
+      }
+
+      /* Header */
+      header {
+        background-color: #007bff;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        margin: 0;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: auto;
+      }
+
+      footer p {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      footer a {
+        color: #ffcc00;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <h1>Machine Learning Web App</h1>
+      <p>Explore the power of machine learning with interactive models!</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container">
+      <h2>Naive Bayes - Iris Prediction</h2>
+
+      <form method="POST">
+        <label>Sepal Length:</label>
+        <input type="number" name="sepal_length" step="0.1" required />
+        <label>Sepal Width:</label>
+        <input type="number" name="sepal_width" step="0.1" required />
+        <label>Petal Length:</label>
+        <input type="number" name="petal_length" step="0.1" required />
+        <label>Petal Width:</label>
+        <input type="number" name="petal_width" step="0.1" required />
+        <input type="submit" value="Prediksi" />
+      </form>
+
+      {% if prediction %}
+      <div class="result">
+        <h2>Hasil Prediksi: {{ prediction }}</h2>
+        {% if accuracy %}
+        <p>Akurasi Model: {{ (accuracy * 100) | round(2) }}%</p>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <!-- Back to Dashboard Button -->
+      <a href="/" class="back-button">Kembali ke Dashboard</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2025 Machine Learning Web App. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
